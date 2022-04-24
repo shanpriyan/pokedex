@@ -3,8 +3,7 @@
 .spinner-root {
   @include flex-row;
   width: 100%;
-  padding: 10px;
-  padding-bottom: 30px;
+  padding: 15px;
 
   $pokeball-width: 50px;
   $pokeball-height: 50px;

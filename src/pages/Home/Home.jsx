@@ -30,11 +30,9 @@ const LandingPage = () => {
         <Loader />
       ) : (
         <>
-          <ul className="card-list">
-            {renderPokemonsList}
-            <li className="hidden-load-more" ref={ref} />
-          </ul>
+          <ul className="card-list">{renderPokemonsList}</ul>
           {isLoadingNextBatch && <Spinner />}
+          <div className="hidden-load-more" ref={ref} />
         </>
       )}
     </main>
