@@ -1,0 +1,14 @@
+@import "../../styles/layout";
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+
+  .category-cell {
+    @include sub-heading;
+  }
+
+  .value-cell {
+    @include content;
+  }
+}
