@@ -6,7 +6,7 @@
     Pokédex built with React and PokéAPI, infinite scrolling of pokemon cards implemented using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API" target="_blank">Intersection Observer API</a>.
     <br />
     <br />
-    <a href="https://pokedex-e6661.web.app/" target="_blank"  >View Demo</a>
+    <a href="https://pokedex.shanpriyan.in/" target="_blank"  >View Demo</a>
   </p>
 </p>
 
@@ -67,7 +67,10 @@ This project uses [Prettier](https://prettier.io/) for formatting. You can use `
 
 ## Bundling
 
-This project uses [webpack](https://webpack.js.org/) for bundling. You can use `npm run build` script to generate a production build and `npm run build:dev` script to generate a development build. Build will output to `dist` folder.
+This project uses [webpack](https://webpack.js.org/) for bundling. 
+- Use `npm run build` script to generate a production build 
+- Use `npm run build:dev` script to generate a development build. 
+- Build will output to `dist` folder.
 
 ## Babel
 
@@ -75,4 +78,4 @@ This project is configured with new [runtime JSX transform](https://reactjs.org/
 
 ## Demo
 
-Live Demo - https://pokedex-e6661.web.app
+Live Demo - https://pokedex.shanpriyan.in/
