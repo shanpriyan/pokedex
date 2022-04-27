@@ -67,9 +67,9 @@ This project uses [Prettier](https://prettier.io/) for formatting. You can use `
 
 ## Bundling
 
-This project uses [webpack](https://webpack.js.org/) for bundling. 
-- Use `npm run build` script to generate a production build 
-- Use `npm run build:dev` script to generate a development build. 
+This project uses [webpack](https://webpack.js.org/) for bundling.
+- Use `npm run build` script to generate a production build
+- Use `npm run build:dev` script to generate a development build.
 - Build will output to `dist` folder.
 
 ## Babel

@@ -8,6 +8,7 @@ import {
   useIntersectionObserver,
 } from "../../hooks";
 import Spinner from "../../components/Spinner/Spinner";
+import { GithubIcon } from "../../icons";
 import "./Home.scss";
 
 const LandingPage = () => {
@@ -25,7 +26,16 @@ const LandingPage = () => {
 
   return (
     <main className="app-root">
-      <Header>Pokédex</Header>
+      <Header>
+        <p>Pokédex</p>
+        <a
+          href="https://github.com/shanpriyan/pokedex"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <GithubIcon />
+        </a>
+      </Header>
       {isLoading ? (
         <Loader />
       ) : (

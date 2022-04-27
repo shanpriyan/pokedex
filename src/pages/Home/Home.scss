@@ -33,6 +33,21 @@ main,
   height: 100%;
   width: 100%;
 
+  .header {
+    p {
+      margin-right: auto;
+    }
+
+    a {
+      opacity: 0.8;
+      &:hover {
+        opacity: 1;
+        transform: translateY(-2px);
+        transition: transform 120ms ease-in;
+      }
+    }
+  }
+
   .loading {
     height: calc(100% - var(--header-height));
   }
