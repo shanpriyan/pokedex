@@ -14,7 +14,10 @@ import "./Home.scss";
 const LandingPage = () => {
   const { pokemonsList, isLoading, isLoadingNextBatch } = usePokemonState();
   const { loadPokemons } = usePokemonSetter();
-  const ref = useIntersectionObserver(loadPokemons, [isLoading]);
+  const ref = useIntersectionObserver(loadPokemons, [
+    isLoading,
+    isLoadingNextBatch,
+  ]);
 
   const renderPokemonsList = useMemo(
     () =>
@@ -31,7 +34,7 @@ const LandingPage = () => {
         <a
           href="https://github.com/shanpriyan/pokedex"
           target="_blank"
-          rel="noreferrer"
+          rel="noreferrer noopener"
         >
           <GithubIcon />
         </a>

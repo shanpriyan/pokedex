@@ -42,8 +42,8 @@ main,
       opacity: 0.8;
       &:hover {
         opacity: 1;
-        transform: translateY(-2px);
-        transition: transform 120ms ease-in;
+        transform: translateY(-1px);
+        transition: transform 500ms ease-in-out;
       }
     }
   }

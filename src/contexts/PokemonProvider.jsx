@@ -18,7 +18,7 @@ export const PokemonProvider = ({ children }) => {
   }, []);
 
   const loadPokemons = async () => {
-    if (!batchURL.current) return;
+    if (!batchURL.current || state.isLoadingNextBatch) return;
     setLoadingNextBatch(true);
     const resp = await fetch(batchURL.current);
     const { next, results } = await resp.json();
