@@ -58,7 +58,7 @@ Steps to run Pokédex in your local environment.
 
 ## Linting
 
-This project is configured with [ESLint](https://eslint.org/) for linting in `.eslintrc.json`.
+This project is configured with [ESLint](https://eslint.org/) for linting in `.eslintrc.json`. You can use `npm run lint` script to check for errors or warnings in the project.
 <br/>
 
 ## Formatting

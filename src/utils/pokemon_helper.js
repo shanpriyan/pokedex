@@ -4,10 +4,12 @@ export const initialURL = `${baseURL}api/v2/pokemon?limit=${POKEMONS_PER_BATCH}`
 
 export const fetchSpeciesData = async (id) => {
   const resp = await fetch(`${baseURL}api/v2/pokemon-species/${id}/`);
-  return await resp.json();
+  const result = await resp.json();
+  return result;
 };
 
 export const fetchPokemonData = async (id) => {
   const resp = await fetch(`${baseURL}api/v2/pokemon/${id}/`);
-  return await resp.json();
+  const result = resp.json();
+  return result;
 };
