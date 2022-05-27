@@ -16,8 +16,8 @@ export const SpeciesCard = () => {
         category="Genus:"
         value={findEngLang(pokemonSpeciesData.genera).genus}
       />
-      <Row category="Height:" value={pokemonData.height / 10 + " m"} />
-      <Row category="Weight:" value={pokemonData.weight / 10 + " kg"} />
+      <Row category="Height:" value={`${pokemonData.height / 10} m`} />
+      <Row category="Weight:" value={`${pokemonData.weight / 10} kg`} />
       <Row
         category="Gen:"
         value={formatGeneration(pokemonSpeciesData?.generation?.name)}

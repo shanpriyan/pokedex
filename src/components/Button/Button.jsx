@@ -1,11 +1,9 @@
 import "./Button.scss";
 
-const Button = ({ children, ...rest }) => {
-  return (
-    <button className="button" {...rest}>
-      {children}
-    </button>
-  );
-};
+const Button = ({ children, ...rest }) => (
+  <button className="button" type="button" {...rest}>
+    {children}
+  </button>
+);
 
 export default Button;

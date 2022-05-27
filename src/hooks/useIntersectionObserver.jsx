@@ -9,7 +9,6 @@ export const useIntersectionObserver = (callback, deps = []) => {
 
     function handleEntries([entry]) {
       if (entry.isIntersecting) {
-        observer.unobserve(node);
         callback();
       }
     }
@@ -17,6 +16,7 @@ export const useIntersectionObserver = (callback, deps = []) => {
     const options = { threshold: 0.1 };
     const observer = new IntersectionObserver(handleEntries, options);
     observer.observe(node);
+
     return () => observer.unobserve(node);
   }, deps);
 

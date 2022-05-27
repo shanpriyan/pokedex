@@ -9,7 +9,7 @@ const baseConfig = {
   output: {
     path: path.resolve(__dirname, "dist"),
     publicPath: "/",
-    clean:true
+    clean: true,
   },
   resolve: {
     extensions: [".js", ".jsx"],

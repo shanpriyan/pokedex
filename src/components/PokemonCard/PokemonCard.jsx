@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../constants/routepaths";
 import {
@@ -7,7 +8,6 @@ import {
   getPokemonImage,
 } from "../../utils/utils";
 import "./PokemonCard.scss";
-import { Fragment } from "react";
 
 export default function PokemonCard({ pokemonData, disableClick }) {
   const { id, name, types } = pokemonData;
@@ -15,11 +15,13 @@ export default function PokemonCard({ pokemonData, disableClick }) {
 
   const launchDetailsPage = () => {
     if (!disableClick) {
+      window.scrollTo(0, 0);
       navigate(`${ROUTES.DETAILS}/${id}`);
     }
   };
 
   return (
+    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <li
       className="card"
       onClick={launchDetailsPage}

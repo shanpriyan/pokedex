@@ -14,6 +14,6 @@ export const PreviousIcon = () => (
       strokeWidth="2"
       points="7 2 17 12 7 22"
       transform="matrix(-1 0 0 1 24 0)"
-    ></polyline>
+    />
   </svg>
 );

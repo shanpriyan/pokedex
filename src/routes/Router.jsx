@@ -15,7 +15,7 @@ const Router = () => (
       <BrowserRouter>
         <Routes>
           <Route path={ROUTES.HOME} element={<Home />} />
-          <Route path={ROUTES.DETAILS + "/:id"} element={<PokemonDetails />} />
+          <Route path={`${ROUTES.DETAILS}/:id`} element={<PokemonDetails />} />
         </Routes>
       </BrowserRouter>
     </Suspense>

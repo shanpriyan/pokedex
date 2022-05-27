@@ -13,29 +13,6 @@ export const PokemonProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const batchURL = useRef(initialURL);
 
-  useEffect(() => {
-    loadPokemons().then(() => state.isLoading && setLoading(false));
-  }, []);
-
-  const loadPokemons = async () => {
-    if (!batchURL.current || state.isLoadingNextBatch) return;
-    setLoadingNextBatch(true);
-    const resp = await fetch(batchURL.current);
-    const { next, results } = await resp.json();
-
-    batchURL.current = next;
-
-    const _pokemonsList = await Promise.all(
-      results.map(async (pokemon) => {
-        const resp = await fetch(pokemon.url);
-        return await resp.json();
-      })
-    );
-
-    setPokemonsList(_pokemonsList);
-    setLoadingNextBatch(false);
-  };
-
   const setPokemonsList = (pokemons) => {
     dispatch({
       type: ACTIONS.SET_POKEMONS_LIST,
@@ -78,18 +55,43 @@ export const PokemonProvider = ({ children }) => {
     });
   };
 
+  const loadPokemons = async () => {
+    if (!batchURL.current || state.isLoadingNextBatch) return;
+    setLoadingNextBatch(true);
+    const resp = await fetch(batchURL.current);
+    const { next, results } = await resp.json();
+
+    batchURL.current = next;
+
+    const pokemonsList = await Promise.all(
+      results.map(async (pokemon) => {
+        const response = await fetch(pokemon.url);
+        const res = response.json();
+        return res;
+      })
+    );
+
+    setPokemonsList(pokemonsList);
+    setLoadingNextBatch(false);
+  };
+
   useEffect(() => {
     if (!state.id) return;
-    (async function () {
-      const _pokemonData = await fetchPokemonData(state.id);
-      setPokemonData(_pokemonData);
-      const _pokemonSpeciesData = await fetchSpeciesData(state.id);
-      setPokemonSpeciesData(_pokemonSpeciesData);
+    (async function setPokemonDetails() {
+      const pokemonData = await fetchPokemonData(state.id);
+      setPokemonData(pokemonData);
+      const pokemonSpeciesData = await fetchSpeciesData(state.id);
+      setPokemonSpeciesData(pokemonSpeciesData);
     })();
   }, [state.id]);
 
+  useEffect(() => {
+    loadPokemons().then(() => state.isLoading && setLoading(false));
+  }, []);
+
   return (
     <PokemonContext.Provider
+      // eslint-disable-next-line react/jsx-no-constructed-context-values
       value={{
         state,
         dispatch,
