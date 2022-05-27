@@ -1,9 +1,10 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-module.exports = () => ({
+module.exports = {
   devtool: false,
   output: {
     filename: "js/[name].[contenthash:8].chunk.js",
+    publicPath: "https://pokedex.shanpriyan.in/",
   },
   plugins: [
     new MiniCssExtractPlugin({
@@ -19,4 +20,4 @@ module.exports = () => ({
       },
     ],
   },
-});
+};

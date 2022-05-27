@@ -4,12 +4,11 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { merge } = require("webpack-merge");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
-const configMode = (mode) => require(`./config/webpack.${mode}`)(mode);
+const configMode = (mode) => require(`./config/webpack.${mode}`);
 
 const baseConfig = {
   output: {
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/",
   },
   resolve: {
     extensions: [".js", ".jsx"],
@@ -24,12 +23,8 @@ const baseConfig = {
         },
       },
       {
-        test: /\.(jpeg|jpg|png|gif|webp)$/i,
-        loader: "file-loader",
-      },
-      {
-        test: /\.svg$/,
-        use: ["@svgr/webpack", "file-loader"],
+        test: /\.(jpeg|jpg|png|gif|webp|svg)$/i,
+        type: "asset",
       },
     ],
   },
