@@ -4,11 +4,12 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { merge } = require("webpack-merge");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
-const configMode = (mode) => require(`./config/webpack.${mode}`);
+const configMode = (mode) => require(`./configs/webpack.${mode}`);
 
 const baseConfig = {
   output: {
     path: path.resolve(__dirname, "dist"),
+    publicPath: "/",
   },
   resolve: {
     extensions: [".js", ".jsx"],

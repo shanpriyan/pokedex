@@ -3,9 +3,6 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
   },
-  output: {
-    publicPath: "http://localhost:8080/",
-  },
   module: {
     rules: [
       {
