@@ -1,6 +1,5 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { merge } = require("webpack-merge");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
@@ -10,6 +9,7 @@ const baseConfig = {
   output: {
     path: path.resolve(__dirname, "dist"),
     publicPath: "/",
+    clean:true
   },
   resolve: {
     extensions: [".js", ".jsx"],
@@ -30,7 +30,6 @@ const baseConfig = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new HtmlWebPackPlugin({
       template: "public/index.html",
     }),
