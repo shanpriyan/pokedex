@@ -1,4 +1,4 @@
-@import "../../styles/layout.scss";
+@use "../../styles/layout.scss" as *;
 
 .loading {
   @include flex-col;

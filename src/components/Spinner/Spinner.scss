@@ -1,4 +1,4 @@
-@import "../../styles/layout";
+@use "../../styles/layout" as *;
 
 .spinner-root {
   @include flex-row;

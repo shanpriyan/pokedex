@@ -1,4 +1,4 @@
-@import "../../styles/layout";
+@use "../../styles/layout" as *;
 
 .button {
   --button-hover-bg-clr: #00afc1;

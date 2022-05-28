@@ -1,4 +1,4 @@
-@import "../../styles/layout";
+@use "../../styles/layout" as *;
 .row {
   display: grid;
   grid-template-columns: 1fr 1fr;
