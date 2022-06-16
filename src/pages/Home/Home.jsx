@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import PokemonCard from "../../components/PokemonCard/PokemonCard";
 import Header from "../../components/Header/Header";
+import ExternalLink from "../../components/ExternalLink/ExternalLink";
 import Loader from "../Loader/Loader";
 import {
   usePokemonState,
@@ -9,6 +10,7 @@ import {
 } from "../../hooks";
 import Spinner from "../../components/Spinner/Spinner";
 import { GithubIcon } from "../../icons";
+import { scrollToTop } from "../../utils/utils";
 import "./Home.scss";
 
 const LandingPage = () => {
@@ -30,14 +32,12 @@ const LandingPage = () => {
   return (
     <main className="app-root">
       <Header>
-        <p>Pokédex</p>
-        <a
-          href="https://github.com/shanpriyan/pokedex"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
+        <button type="button" onClick={() => scrollToTop(true)}>
+          Pokédex
+        </button>
+        <ExternalLink href="https://github.com/shanpriyan/pokedex">
           <GithubIcon />
-        </a>
+        </ExternalLink>
       </Header>
       {isLoading ? (
         <Loader />

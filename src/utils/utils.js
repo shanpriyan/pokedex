@@ -115,3 +115,9 @@ export const getPokemonImage = (pokemonData) => {
     pokemonData.sprites.front_default;
   return image;
 };
+
+export const scrollToTop = (enableSmoothScroll) =>
+  window.scrollTo({
+    top: 0,
+    behavior: enableSmoothScroll ? "smooth" : "auto",
+  });

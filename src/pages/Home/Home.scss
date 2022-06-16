@@ -5,7 +5,7 @@
 }
 
 .card-list {
-  margin-top: 15px;
+  margin-top: calc(15px + var(--header-height));
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
@@ -16,8 +16,12 @@
   width: 100%;
 
   .header {
-    p {
+    button {
       margin-right: auto;
+      color: #fff;
+      font-size: inherit;
+      font-family: inherit;
+      font-weight: inherit;
     }
 
     a {

@@ -6,6 +6,7 @@ import {
   formatId,
   COLOR,
   getPokemonImage,
+  scrollToTop,
 } from "../../utils/utils";
 import "./PokemonCard.scss";
 
@@ -14,10 +15,9 @@ export default function PokemonCard({ pokemonData, disableClick }) {
   const navigate = useNavigate();
 
   const launchDetailsPage = () => {
-    if (!disableClick) {
-      window.scrollTo(0, 0);
-      navigate(`${ROUTES.DETAILS}/${id}`);
-    }
+    if (disableClick) return;
+    scrollToTop();
+    navigate(`${ROUTES.DETAILS}/${id}`);
   };
 
   return (

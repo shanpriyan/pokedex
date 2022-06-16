@@ -7,6 +7,13 @@
 
   .header {
     padding-left: 15px;
+    button {
+      padding-right: 15px;
+      svg {
+        height: 30px;
+        width: 30px;
+      }
+    }
   }
 
   $line-height: 2;
@@ -57,7 +64,7 @@
 
   .button-container {
     @include flex-row(center, space-between);
-    padding: 10px 15px 0 15px;
+    padding: calc(10px + var(--header-height)) 15px 0 15px;
   }
 
   @media (max-width: 600px) {
