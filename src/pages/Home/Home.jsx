@@ -13,6 +13,17 @@ import { GithubIcon } from "../../icons";
 import { scrollToTop } from "../../utils/utils";
 import "./Home.scss";
 
+const Nav = () => (
+  <Header>
+    <button type="button" onClick={() => scrollToTop(true)}>
+      Pokédex
+    </button>
+    <ExternalLink href="https://github.com/shanpriyan/pokedex">
+      <GithubIcon />
+    </ExternalLink>
+  </Header>
+);
+
 const LandingPage = () => {
   const { pokemonsList, isLoading, isLoadingNextBatch } = usePokemonState();
   const { loadPokemons } = usePokemonSetter();
@@ -29,25 +40,14 @@ const LandingPage = () => {
     [pokemonsList]
   );
 
+  if (isLoading) return <Loader />;
+
   return (
     <main className="app-root">
-      <Header>
-        <button type="button" onClick={() => scrollToTop(true)}>
-          Pokédex
-        </button>
-        <ExternalLink href="https://github.com/shanpriyan/pokedex">
-          <GithubIcon />
-        </ExternalLink>
-      </Header>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <>
-          <ul className="card-list">{renderPokemonsList}</ul>
-          {isLoadingNextBatch && <Spinner />}
-          <div className="hidden-load-more" ref={ref} />
-        </>
-      )}
+      <Nav />
+      <ul className="card-list">{renderPokemonsList}</ul>
+      {isLoadingNextBatch && <Spinner />}
+      <div className="hidden-load-more" ref={ref} />
     </main>
   );
 };
