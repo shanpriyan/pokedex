@@ -2,10 +2,12 @@ const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const { merge } = require("webpack-merge");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 const configMode = (mode) => require(`./configs/webpack.${mode}`);
 
-const baseConfig = {
+const baseConfig = ({ analyze, mode }) => ({
+  mode,
   output: {
     path: path.resolve(__dirname, "dist"),
     publicPath: "/",
@@ -30,6 +32,7 @@ const baseConfig = {
     ],
   },
   plugins: [
+    analyze && new BundleAnalyzerPlugin(),
     new HtmlWebPackPlugin({
       template: "public/index.html",
     }),
@@ -43,7 +46,7 @@ const baseConfig = {
         },
       ],
     }),
-  ],
-};
+  ].filter(Boolean),
+});
 
-module.exports = (_, { mode }) => merge(baseConfig, configMode(mode));
+module.exports = (env, args) => merge(baseConfig(args), configMode(args.mode));

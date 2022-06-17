@@ -4,12 +4,12 @@ module.exports = {
   devtool: false,
   output: {
     filename: "js/[name].[contenthash:8].chunk.js",
-    chunkFilename: "js/[name].[contenthash:8].chunk.js",
+    chunkFilename: "js/[name].[contenthash:8].lazy-chunk.js",
   },
   plugins: [
     new MiniCssExtractPlugin({
       filename: "css/[name].[contenthash:8].chunk.css",
-      chunkFilename: "css/[name].[contenthash:8].chunk.css",
+      chunkFilename: "css/[name].[contenthash:8].lazy-chunk.css",
     }),
   ],
   optimization: {
