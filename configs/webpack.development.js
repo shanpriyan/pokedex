@@ -1,4 +1,4 @@
-module.exports = {
+module.exports = (env) => ({
   devtool: "source-map",
   devServer: {
     historyApiFallback: true,
@@ -15,4 +15,4 @@ module.exports = {
       },
     ],
   },
-};
+});

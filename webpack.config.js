@@ -1,12 +1,14 @@
 const path = require("path");
+const { ProgressPlugin } = require("webpack");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const { merge } = require("webpack-merge");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+const CompressionPlugin = require("compression-webpack-plugin");
 
-const configMode = (mode) => require(`./configs/webpack.${mode}`);
+const configMode = (env) => require(`./configs/webpack.${env.mode}`)(env);
 
-const baseConfig = ({ analyze, mode }) => ({
+const baseConfig = ({ analyze, mode, compress }) => ({
   mode,
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -33,6 +35,7 @@ const baseConfig = ({ analyze, mode }) => ({
   },
   plugins: [
     analyze && new BundleAnalyzerPlugin(),
+    new ProgressPlugin(),
     new HtmlWebPackPlugin({
       template: "public/index.html",
     }),
@@ -46,7 +49,12 @@ const baseConfig = ({ analyze, mode }) => ({
         },
       ],
     }),
+    compress &&
+      new CompressionPlugin({
+        algorithm: "brotliCompress",
+        test: /\.(js|css|html|svg)$/,
+      }),
   ].filter(Boolean),
 });
 
-module.exports = (env, args) => merge(baseConfig(args), configMode(args.mode));
+module.exports = (env) => merge(baseConfig(env), configMode(env));
