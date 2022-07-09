@@ -10,6 +10,21 @@
       content="Pokédex with infinite scrolling of pokemon cards and their details"
     />
     <title>Pokédex</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-2STFB7TQNP"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-2STFB7TQNP' ,{ path: window.location.pathname });
+    </script>
   </head>
   <body>
     <div id="root"></div>
