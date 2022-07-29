@@ -45,7 +45,7 @@ const LandingPage = () => {
   return (
     <main className="app-root">
       <Nav />
-      <ul className="card-list">{renderPokemonsList}</ul>
+      <div className="card-list">{renderPokemonsList}</div>
       {isLoadingNextBatch && <Spinner />}
       <div className="hidden-load-more" ref={ref} />
     </main>

@@ -21,11 +21,12 @@ export default function PokemonCard({ pokemonData, disableClick }) {
   };
 
   return (
-    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-    <li
+    <div
+      tabIndex={0}
       className="card"
       onClick={launchDetailsPage}
       style={{ borderColor: COLOR.TYPE(types[0].type.name) }}
+      role="button"
     >
       <div
         className="pokemon-image-container"
@@ -53,6 +54,6 @@ export default function PokemonCard({ pokemonData, disableClick }) {
         ))}
       </div>
       <strong>{capitalize(name)}</strong>
-    </li>
+    </div>
   );
 }
