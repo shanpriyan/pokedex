@@ -2,6 +2,7 @@ module.exports = (env) => ({
   devtool: "source-map",
   devServer: {
     historyApiFallback: true,
+    port: 1998
   },
   module: {
     rules: [

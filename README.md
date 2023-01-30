@@ -52,7 +52,7 @@ Steps to run Pokédex in your local environment.
    npm start
    ```
 
-5. Development server will start at `localhost:8080`
+5. Development server will start at `localhost:1998`
 
 <br/>
 
